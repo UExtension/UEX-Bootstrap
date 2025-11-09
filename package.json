@@ -1,0 +1,12 @@
+{
+  "name": "com.uextension.bootstrap",
+  "displayName": "UEX Bootstrap",
+  "description": "Unity bootstrap system",
+  "author": {
+    "name": "UExtension"
+  },
+  "license": "MIT",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "dependencies": {}
+}

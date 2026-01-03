@@ -4,15 +4,15 @@ using UnityEngine.UIElements;
 
 namespace UExtension.Bootstrap.UI.Windows
 {
-    public class NavigationHistoryEditor : EditorWindow
+    public class UExtensionEditorWindow : EditorWindow
     {
         [SerializeField] private VisualTreeAsset visualTreeAsset;
 
-        [MenuItem("UExtension/Navigation/History")]
+        [MenuItem("UExtension/Editor Window")]
         public static void ShowExample()
         {
-            var wnd = GetWindow<NavigationHistoryEditor>();
-            wnd.titleContent = new GUIContent("Navigation History");
+            var wnd = GetWindow<UExtensionEditorWindow>();
+            wnd.titleContent = new GUIContent("UExtension");
         }
 
         public void CreateGUI()

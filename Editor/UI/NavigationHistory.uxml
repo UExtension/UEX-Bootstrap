@@ -1,0 +1,4 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/NavigationHistory.uss?fileID=7433441132597879392&amp;guid=f494487a328306d44bf7ae0080a9e6b0&amp;type=3#NavigationHistory"/>
+    <UExtension.Bootstrap.UI.Views.NavigationTabView/>
+</ui:UXML>

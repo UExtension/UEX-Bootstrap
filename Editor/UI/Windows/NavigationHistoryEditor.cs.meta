@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 64c83d58e04065643b35e9b31b8b0ccd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - visualTreeAsset: {fileID: 9197481963319205126, guid: 09fb9a13e7b81c14aad7d3dd99c77012, type: 3}
+  - home: {fileID: 11400000, guid: 0613110aeb2cebd4b9128bb20a9d2847, type: 2}
+  - page1: {fileID: 11400000, guid: 3db4838e296deb2488a6b18e9e6363c0, type: 2}
+  - page2: {fileID: 11400000, guid: ab4fbd1df98fb7549ac5cea3ad2e9971, type: 2}
+  - page3: {fileID: 11400000, guid: f83d0ab3081d6624c977c5172dec08ba, type: 2}
+  - tabs: {fileID: 11400000, guid: b9db1441e315e164a80942ae624ca9a4, type: 2}
+  - tab1: {fileID: 11400000, guid: 9891afd1f90c8804abd29e115856c78d, type: 2}
+  - tab2: {fileID: 11400000, guid: 84fe4902fd1f8584194b84ae3249abc8, type: 2}
+  - tab3: {fileID: 11400000, guid: 64ec3d58bf6b4c44287b9bd5be70b3f1, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,157 @@
+.navigation-history {
+    flex-grow: 1;
+    align-items: center;
+}
+
+.route {
+    margin: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.route:hover {
+    background-color: var(--unity-colors-highlight-background-hover);
+    color: var(--unity-colors-highlight-text);
+}
+
+.route--active .route__background {
+    background-color: var(--unity-colors-highlight-background);
+}
+
+.route--tip .route__background {
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-color: var(--unity-colors-highlight-background);
+    border-left-color: var(--unity-colors-highlight-background);
+    border-right-color: var(--unity-colors-highlight-background);
+    border-bottom-color: var(--unity-colors-highlight-background);
+}
+
+.route--selected .route__background {
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-color: var(--unity-colors-label-text-focus);
+    border-left-color: var(--unity-colors-label-text-focus);
+    border-right-color: var(--unity-colors-label-text-focus);
+    border-bottom-color: var(--unity-colors-label-text-focus);
+}
+
+.route:hover .route__label {
+    border-bottom-color: var(--unity-colors-highlight-text);
+}
+
+.route__label {
+    -unity-text-align: middle-center;
+    margin-top: 5px;
+    border-bottom-width: 1px;
+    -unity-font-style: bold;
+    padding-bottom: 2px;
+    border-bottom-color: var(--unity-colors-label-text);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.route__background {
+    aspect-ratio: 1;
+    background-color: var(--unity-colors-highlight-background-inactive);
+    width: 100%;
+    flex-grow: 1;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+}
+
+.arrow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: var(--unity-colors-highlight-background-inactive);
+}
+
+.arrow--active {
+    color: var(--unity-colors-highlight-background);
+}
+
+.navigation-history__arrows {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-history__row {
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navigation-history-scroll-view {
+    flex-grow: 1;
+}
+
+.navigation-tab-view .unity-tab__header {
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.navigation-tab-view .unity-tab-view__header-container {
+    flex-grow: 1;
+}
+
+.searchable-routes-list-view__search-field, .searchable-scenes-list-view__search-field {
+    border-bottom-color: var(--unity-colors-label-text);
+    border-bottom-width: 2px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.route-factory, .scene-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    align-items: center;
+}
+
+.route-factory Label, .scene-container Label {
+    -unity-font-style: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+}
+
+.route-factory VisualElement, .scene-container VisualElement {
+    flex-shrink: 0;
+}
+
+.route-factory__buttons, .scene-container__buttons {
+    flex-direction: row;
+}
+
+.navigation-history-column-view {
+    flex-direction: row;
+}
+
+.navigation-history-column-view .searchable-routes-list-view {
+    min-width: 300px;
+}
+
+.navigation-history-column-view__scroll-view{
+    flex-grow: 1;
+}

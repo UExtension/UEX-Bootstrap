@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace UExtension.Bootstrap.UI.Views
@@ -7,7 +8,7 @@ namespace UExtension.Bootstrap.UI.Views
     [UxmlElement]
     public partial class NavigationTabView : VisualElement
     {
-        private static IUExtensionTabFactory[] _cachedUExtensions;
+        private static IUExtensionEditorWindow[] _cachedUExtensions;
         public TabView TabView { get; }
 
         public NavigationTabView()
@@ -20,8 +21,8 @@ namespace UExtension.Bootstrap.UI.Views
 
             _cachedUExtensions ??= AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(a => a.GetTypes())
-                .Where(t => typeof(IUExtensionTabFactory).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
-                .Select(t => (IUExtensionTabFactory)Activator.CreateInstance(t))
+                .Where(t => typeof(IUExtensionEditorWindow).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
+                .Select(t => (IUExtensionEditorWindow)ScriptableObject.CreateInstance(t))
                 .OrderBy(t => t.Order)
                 .ToArray();
 

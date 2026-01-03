@@ -2,7 +2,7 @@
 
 namespace UExtension.Bootstrap.UI
 {
-    public interface IUExtensionTabFactory
+    public interface IUExtensionEditorWindow
     {
         string Name { get; }
         int Order { get; }

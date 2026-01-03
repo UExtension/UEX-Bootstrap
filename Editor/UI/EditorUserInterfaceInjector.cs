@@ -4,7 +4,8 @@ namespace UExtension.Bootstrap.UI
 {
     public interface IUExtensionTabFactory
     {
+        string Name { get; }
         int Order { get; }
-        public Tab Create();
+        VisualTreeAsset VisualTreeAsset { get; }
     }
 }

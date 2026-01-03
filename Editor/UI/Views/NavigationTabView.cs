@@ -27,7 +27,17 @@ namespace UExtension.Bootstrap.UI.Views
 
             foreach (var uExtension in _cachedUExtensions)
             {
-                TabView.Add(uExtension.Create());
+                if (uExtension.VisualTreeAsset == null) continue;
+
+                foreach (var sheet in uExtension.VisualTreeAsset.stylesheets)
+                {
+                    styleSheets.Add(sheet);
+                }
+
+                var tab = new Tab(uExtension.Name);
+                tab.AddToClassList("navigation-tab");
+                uExtension.VisualTreeAsset.CloneTree(tab);
+                TabView.Add(tab);
             }
         }
     }

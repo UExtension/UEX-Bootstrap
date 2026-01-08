@@ -1,6 +1,6 @@
 {
     "name": "com.uextension.bootstrap.Editor",
-    "rootNamespace": "UExtension.Bootstrap",
+    "rootNamespace": "UExtension.Bootstrap.Editor",
     "references": [
         "com.uextension.bootstrap"
     ],

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -34,32 +33,11 @@ namespace UExtension.Bootstrap.Editor
             serializedObject.ApplyModifiedProperties();
         }
 
-        /// <summary>
-        /// Load all found Bootstrap services when entering play mode to simulate pre-loaded assets when built
-        /// </summary>
-        [InitializeOnEnterPlayMode]
-        private static void HandlePlayModeStateChanged()
-        {
-            var assets = LoadBootstraps();
-
-            if (assets.Count > 1)
-            {
-                throw new Exception("More than one Bootstrap found !");
-            }
-
-            assets.ForEach(PopulateServices);
-        }
-
-        private static List<Bootstrap> LoadBootstraps()
+        public static List<Bootstrap> FindBootstraps()
         {
             return AssetDatabase
                 .FindAssets($"t:{nameof(Bootstrap)}")
                 .Select(AssetDatabase.GUIDToAssetPath)
-                .Select(path =>
-                {
-                    Debug.Log($"Loading bootstrap => {path}");
-                    return path;
-                })
                 .Select(AssetDatabase.LoadAssetAtPath<Bootstrap>)
                 .ToList();
         }
@@ -86,17 +64,8 @@ namespace UExtension.Bootstrap.Editor
         /// Editor method to create an asset instance
         /// </summary>
         /// <returns>newly created asset instance</returns>
-        [MenuItem("Assets/Create/UExtension/Bootstrap")]
         private static void CreateAsset()
         {
-            var guids = AssetDatabase.FindAssets($"t:{nameof(Bootstrap)}");
-            if (guids.Length > 0)
-            {
-                var path = AssetDatabase.GUIDToAssetPath(guids[0]);
-                Selection.activeObject = AssetDatabase.LoadAssetAtPath<Bootstrap>(path);
-                throw new Exception("Bootstrap already exists");
-            }
-
             var asset = CreateInstance<Bootstrap>();
             ProjectWindowUtil.CreateAsset(asset, "Bootstrap.asset");
 
@@ -110,7 +79,7 @@ namespace UExtension.Bootstrap.Editor
         /// Populates Bootstrap services with all <see cref="IBootstrapService"/>
         /// </summary>
         /// <returns>this</returns>
-        private static void PopulateServices(Bootstrap instance)
+        public static void PopulateServices(Bootstrap instance)
         {
             var serviceGroups = AssetDatabase.FindAssets($"t:{nameof(ScriptableObject)}")
                 .Select(AssetDatabase.GUIDToAssetPath)
@@ -139,7 +108,12 @@ namespace UExtension.Bootstrap.Editor
 
         public void OnPreprocessBuild(BuildReport report)
         {
-            var bootstraps = LoadBootstraps();
+            LoadAndAddToPreloadedAssets();
+        }
+
+        private static void LoadAndAddToPreloadedAssets()
+        {
+            var bootstraps = FindBootstraps();
 
             switch (bootstraps.Count)
             {
@@ -152,7 +126,6 @@ namespace UExtension.Bootstrap.Editor
                     throw new BuildFailedException("More than one Bootstrap found !");
             }
         }
-
 
         private static void AddToPreloadedAssets(Bootstrap bootstrap)
         {
